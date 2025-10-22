@@ -11,3 +11,4 @@
 - [ ] I reviewed my code for clarity
 - [ ] I tested the changes locally
 - [ ] I wrote related documentation
+- [ ] I assured that everything works
