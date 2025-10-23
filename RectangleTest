@@ -1,0 +1,132 @@
+package lab5kevin;
+
+import static org.junit.jupiter.api.Assertions.*;
+
+import org.junit.jupiter.api.Test;
+
+class RectangleTest {
+
+	@Test
+    public void testPerimeterOfValidRectangle() {
+        Point A = new Point(0, 0);
+        Point B = new Point(0, 3);
+        Point C = new Point(4, 3);
+        Point D = new Point(4, 0);
+
+        Rectangle rect = new Rectangle(A, B, C, D);
+        double expectedPerimeter = 2 * (4 + 3); // 14.0
+        assertEquals(expectedPerimeter, rect.perimeter());
+    }
+
+    @Test
+    public void testIsValidRectangle_True() {
+        // Valid rectangle
+        Point A = new Point(0, 0);
+        Point B = new Point(0, 2);
+        Point C = new Point(4, 2);
+        Point D = new Point(4, 0);
+
+        Rectangle rect = new Rectangle(A, B, C, D);
+        assertTrue(rect.isValid());
+    }
+    
+    @Test
+    public void testIsValidRectangle_True2() {
+        Point A = new Point(0, 0);
+        Point B = new Point(0, 2);
+        Point C = new Point(2, 2);
+        Point D = new Point(2, 0);
+
+        Rectangle rect = new Rectangle(A, B, C, D);
+        assertTrue(rect.isValid());
+    }
+
+    @Test
+    public void testIsValidRectangle_False() {
+        Point A = new Point(0, 0);
+        Point B = new Point(0, 3);
+        Point C = new Point(5, 3);
+        Point D = new Point(4, 0);
+
+        Rectangle rect = new Rectangle(A, B, C, D);
+        assertFalse(rect.isValid());
+    }
+    
+    @Test
+    public void testIsValidRectangle_False2() {
+        Point A = new Point(1, 1);
+        Point B = new Point(1, 4);
+        Point C = new Point(4, 4);
+        Point D = new Point(4, 7);
+
+        Rectangle rect = new Rectangle(A, B, C, D);
+        assertFalse(rect.isValid());
+    }
+    
+    @Test
+    public void testIsValidRectangle_False3() {
+        Point A = new Point(1, 1);
+        Point B = new Point(1, 4);
+        Point C = new Point(4, 4);
+        Point D = new Point(4, -2);
+
+        Rectangle rect = new Rectangle(A, B, C, D);
+        assertFalse(rect.isValid());
+    }
+
+    @Test
+    public void testIsSquare_True() {
+        Point A = new Point(0, 0);
+        Point B = new Point(0, 2);
+        Point C = new Point(2, 2);
+        Point D = new Point(2, 0);
+
+        Rectangle rect = new Rectangle(A, B, C, D);
+        assertTrue(rect.isSquare());
+    }
+
+    @Test
+    public void testIsSquare_False_Rectangle() {
+        Point A = new Point(0, 0);
+        Point B = new Point(0, 3);
+        Point C = new Point(5, 3);
+        Point D = new Point(5, 0);
+
+        Rectangle rect = new Rectangle(A, B, C, D);
+        assertFalse(rect.isSquare());
+    }
+    
+    @Test
+    public void testIsSquare_False_Rectangle2() {
+        Point A = new Point(1, 1);
+        Point B = new Point(1, 4);
+        Point C = new Point(4, 4);
+        Point D = new Point(4, 7);
+
+        Rectangle rect = new Rectangle(A, B, C, D);
+        assertFalse(rect.isSquare());
+    }
+    
+    @Test
+    public void testIsSquare_False_Rectangle3() {
+        Point A = new Point(1, 1);
+        Point B = new Point(1, 4);
+        Point C = new Point(4, 4);
+        Point D = new Point(4, -2);
+
+        Rectangle rect = new Rectangle(A, B, C, D);
+        assertFalse(rect.isSquare());
+    }
+
+    @Test
+    public void testPerimeterForSquare() {
+        Point A = new Point(1, 1);
+        Point B = new Point(1, 4);
+        Point C = new Point(4, 4);
+        Point D = new Point(4, 1);
+
+        Rectangle square = new Rectangle(A, B, C, D);
+        double expectedPerimeter = 12.0; 
+        assertEquals(expectedPerimeter, square.perimeter());
+    }
+}
