@@ -12,4 +12,8 @@ public class Parallelogram {
 		this.C = C;
 		this.D = D;
 	}
+
+    public double perimeter(){
+        return A.distance(B) + B.distance(C) + C.distance(D) + D.distance(A);
+    }
 }
