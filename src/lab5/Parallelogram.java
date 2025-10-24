@@ -41,13 +41,13 @@ public class Parallelogram {
         if(!this.isValid()){
             return false;
         }
-        double dAB = A.distance(B);
-		double dBC = B.distance(C);
-		double dCD = C.distance(D);
-		double dDA = D.distance(A);
-       if(dAB==dCD && dBC==dDA)
-			return true;	
-		else
-			return false;
-    }
+        double abx = B.x - A.x;
+        double aby = B.y - A.y;
+        double bcx = C.x - B.x;
+        double bcy = C.y - B.y;
+        double dot_product = abx * bcx + aby * bcy;
+        if(dot_product == 0){
+            return true;
+        }
+        return false;
 }
