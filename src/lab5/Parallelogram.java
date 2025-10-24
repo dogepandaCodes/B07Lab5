@@ -25,5 +25,29 @@ public class Parallelogram {
         return Math.abs(abx * ady - aby * adx);
     }
 
+    public boolean isValid(){
+        double dAB = A.distance(B);
+        double dCD = C.distance(D);
+        double dBC = B.distance(C);
+        double dAD = A.distance(D);
 
+        if(dAB != dCD || dBC != dAD){
+            return false;
+        }
+        return true;
+    }
+
+    public boolean isRectangle(){
+        if(!this.isValid()){
+            return false;
+        }
+        double dAB = A.distance(B);
+		double dBC = B.distance(C);
+		double dCD = C.distance(D);
+		double dDA = D.distance(A);
+       if(dAB==dCD && dBC==dDA)
+			return true;	
+		else
+			return false;
+    }
 }
